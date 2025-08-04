@@ -6,7 +6,7 @@ require('dotenv').config();
 // Try to import chat functionality, but handle errors gracefully
 let chatModule = null;
 try {
-  chatModule = require('./api/chat');
+  chatModule = require('./chat');
 } catch (error) {
   console.warn('Warning: Chat module failed to load:', error.message);
   console.warn('Debate functionality will be limited without API keys');
@@ -230,7 +230,7 @@ setInterval(() => {
 
 // Serve the main HTML file
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+  res.sendFile(path.join(__dirname, '..', 'public', 'index.html'));
 });
 
 // For Vercel serverless deployment
